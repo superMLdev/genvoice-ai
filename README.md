@@ -50,10 +50,11 @@ OPENAI_API_KEY=your-openai-key
 HEYGEN_API_KEY=your-heygen-key
 
 ## ▶️ Run the App
-streamlit run app.py
+python app.py
 
 ## 📦 Folder Structure
 
+```
 heygenai/
 ├── rag_pipeline/
 │   ├── retriever.py         # Vector DB + similarity search
@@ -64,15 +65,14 @@ heygenai/
 ├── docs/                    # Architecture diagram, screenshots
 ├── requirements.txt
 └── .env
+```
 
 ## Success
 If everything is fine than you should see:
 ![Success Message](docs/success.png)
 
-Video generated:
-<iframe width="560" height="315" src="https://app.heygen.com/embeds/22a189825fb04a1a8d72d9a92a2f1f64" title="HeyGen video player" frameborder="0" allow="encrypted-media; fullscreen;" allowfullscreen></iframe>
-
-
+File gerenated:
+https://app.heygen.com/embeds/22a189825fb04a1a8d72d9a92a2f1f64
 
 ## 📹 Example Use Cases
 	•	🎓 Educational Explainers
@@ -84,12 +84,4 @@ Video generated:
 
 MIT License — free to use and modify with credit.
 
-##  ✨ Powered by SuperML.dev
----
-
-Let me know if you’d like:
-- A `flow_diagram.png`
-- The starter Python code (`app.py`, `rag_pipeline/`)
-- Video upload/share functionality
-
-Ready to scaffold the codebase too?
+> ##  ✨ Powered by SuperML.dev
