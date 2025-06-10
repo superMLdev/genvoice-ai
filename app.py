@@ -1,59 +1,30 @@
-# app.py
-"""
-CLI version of HeyGenAI: Load file, run RAG, generate video script, call HeyGen API.
-"""
 import os
-import time
-import requests
 from dotenv import load_dotenv
-from rag_pipeline.retriever import load_documents, create_vector_store
-from rag_pipeline.generator import generate_script
-from rag_pipeline.heygen_video import generate_video
+from genvoice.core.document_loader import load_documents
+from genvoice.core.vector_store import create_vector_store
+from genvoice.core.script_generator import generate_script
+from genvoice.providers.heygen import generate_video
 
 load_dotenv()
-OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
-HEYGEN_API_KEY = os.getenv("HEYGEN_API_KEY")
-
-
-def check_video_status(video_id, headers):
-    url = f"https://api.heygen.com/v2/video/{video_id}/status"
-    print("Checking video status...")
-    for _ in range(10):
-        res = requests.get(url, headers=headers)
-        data = res.json()
-        if data.get("status") == "completed":
-            return data.get("download_url")
-        print("...still processing...")
-        time.sleep(6)
-    return None
-
 
 def main():
+    print("\n📁 Project structure and boilerplate for genvoice-ai initialized.")
     file_path = "examples/sample_script.txt"
     print(f"📄 Loading file: {file_path}")
-    docs = load_documents(file_path)
-    db = create_vector_store(docs)
 
-    query = "Summarize this for a video explainer"
+    docs = load_documents(file_path)
+
     print("🧠 Generating script from documents...")
-    script = generate_script(docs, query)
-    print("\n🎬 Generated Script:\n")
-    print(script)
+    script = generate_script(docs, "Summarize the content for a video explainer")
+    print("\n🎬 Generated Script:\n", script)
 
     print("\n📽️ Sending script to HeyGen...")
-    videoId = generate_video(script)
+    result = generate_video(script)
 
-    if videoId:
-        print("✅ Video generation started. Video ID:", videoId)
-        headers = {"Authorization": f"Bearer {HEYGEN_API_KEY}"}
-        download_url = check_video_status(videoId, headers)
-        if download_url:
-            print("\n🎉 Video is ready!")
-        else:
-            print("⚠️ Video still processing. Check your HeyGen dashboard later.")
+    if result.get("data", {}).get("video_id"):
+        print("✅ Video submitted successfully. Video ID:", result["data"]["video_id"])
     else:
-        print("❌ Video generation failed:", videoId)
-
+        print("❌ Video generation failed:", result)
 
 if __name__ == "__main__":
     main()
