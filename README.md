@@ -1,4 +1,4 @@
-# 🎥 heygenai — Create AI Videos with RAG and HeyGen
+# 🎥 rag-text-speech — Create AI Videos with RAG using HeyGen
 
 **Generate AI explainer videos from documents or queries using Retrieval-Augmented Generation (RAG) and HeyGen API.**
 
@@ -12,7 +12,6 @@ This project demonstrates how to:
 - Use **RAG** (Retrieval-Augmented Generation) to extract meaningful information from documents
 - Generate video scripts using **OpenAI GPT / Mistral**
 - Convert scripts into professional videos using **HeyGen’s API**
-- Run everything through an interactive **Streamlit** or **Gradio** interface
 
 ---
 
@@ -39,8 +38,8 @@ This project demonstrates how to:
 ## 🧑‍💻 Setup
 
 ```bash
-git clone https://github.com/supermldev/heygenai.git
-cd heygenai
+git clone https://github.com/supermldev/rag-text-speech.git
+cd rag-text-speech
 pip install -r requirements.txt
 ```
 
