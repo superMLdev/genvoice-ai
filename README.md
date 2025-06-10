@@ -1,6 +1,6 @@
-# 🎥 rag-text-speech — Create AI Videos with RAG using HeyGen
+# 🎥 genvoice-ai — Create AI Videos with RAG using HeyGen
 
-**Generate AI explainer videos from documents or queries using Retrieval-Augmented Generation (RAG) and HeyGen API.**
+**Generate AI explainer videos from documents or queries using Retrieval-Augmented Generation (RAG) using HeyGen API.**
 
 ![HeyGen Flow Diagram](docs/flow_diagram.png)
 ---
@@ -31,15 +31,15 @@ This project demonstrates how to:
 2. **RAG Chain (LangChain or custom logic)**
 3. **Script Generation via OpenAI or Mistral**
 4. **HeyGen API for video rendering**
-5. **Frontend: Streamlit or Gradio**
+5. **Frontend: Streamlit or Gradio** or python backend or API based
 
 ---
 
 ## 🧑‍💻 Setup
 
 ```bash
-git clone https://github.com/supermldev/rag-text-speech.git
-cd rag-text-speech
+git clone https://github.com/supermldev/genvoice-ai.git
+cd genvoice-ai
 pip install -r requirements.txt
 ```
 
@@ -49,17 +49,21 @@ OPENAI_API_KEY=your-openai-key
 HEYGEN_API_KEY=your-heygen-key
 
 ## ▶️ Run the App
+
 python app.py
+or
+streamlit streamlit.py
 
 ## 📦 Folder Structure
 
 ```
-heygenai/
+genvoice-ai/
 ├── rag_pipeline/
 │   ├── retriever.py         # Vector DB + similarity search
 │   ├── generator.py         # Script generation using LLM
 │   └── heygen_video.py      # HeyGen API call
-├── app.py                   # Streamlit or Gradio UI
+├── app.py                   # Python Main file
+├── streamlit.py             # Streamlit 
 ├── examples/                # Sample docs and outputs
 ├── docs/                    # Architecture diagram, screenshots
 ├── requirements.txt
