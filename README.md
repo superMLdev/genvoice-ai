@@ -188,4 +188,9 @@ genvoice-ai/
 MIT © SuperML.dev
 Free to use and modify with credit.
 
+## 👨‍💻 Authors
+
+Built with ❤️ by [SuperML.dev](https://superml.dev)
+
+---
 > ##  ✨ Powered by SuperML.dev
